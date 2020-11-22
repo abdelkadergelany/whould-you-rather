@@ -6,7 +6,7 @@ export default class NewQuestion extends Component {
            
                 <div className="container">
    <div className="wor align-item-center">
-      <div className="col-12 mx-auto">
+      <div className="border border-primary col-12 mx-auto">
          <div className="card">
             <div className="card-body ">
                <ul className="list-unstyled">
