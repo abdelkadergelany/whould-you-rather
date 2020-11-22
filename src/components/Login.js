@@ -1,7 +1,35 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser';
 
-export default class Login extends Component {
+const  mapDispatchToProps = dispatch => ({
+   setAuthedUser: (id) => dispatch(setAuthedUser(id))
+ });
+
+ class Login extends Component {
+
+    componentDidMount() {
+      //  console.log('tester1')
+         // console.log(this.props.users)
+      //   console.log('tester2')
+      }
+      constructor(props) {
+         super(props);
+ 
+         this.handleValueChange = this.handleValueChange.bind(this);
+ 
+     }
+ 
+     handleValueChange(event) {
+         //console.log(event.target.value);
+         this.props.setAuthedUser(event.target.value);
+ 
+ 
+       }
+
     render() {
+      console.log(this.props.users)
+      const obj = this.props.users
         return (
             <div className="container">
    <div className="card text-center">
@@ -12,10 +40,17 @@ export default class Login extends Component {
          <h5 className="card-title">Choose an account</h5>
          <form>
             <div className="form-group">
-               <select className="form-control" id="exampleFormControlSelect1">
-                  <option>Gelany</option>
-                  <option>aly</option>
-                  <option>Kader</option>
+               <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleValueChange}>
+         <option>Select a user</option>
+        {/* { Array.from(this.props.users).map((ex, index)=><option key={index}>f</option>)} */}
+        {Object.keys(obj).map(function(keyName, keyIndex) {
+    		return (
+      			<option key={keyName} value={keyName}>
+					{obj[keyName].name}
+                   
+          		</option>
+    		)
+		})}
                </select>
             </div>
             <div className="form-group">
@@ -31,3 +66,11 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        users: state.users,
+    }
+}
+  
+  export default connect(mapStateToProps,mapDispatchToProps)(Login)

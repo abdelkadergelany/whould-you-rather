@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
+import Profile from './Profile';
 
 export default class NavBar extends Component {
     render() {
+     
         return (
           <div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,11 +27,7 @@ export default class NavBar extends Component {
                       <NavLink  activeClassName="active" to="/leader-board"  className="nav-link">Leader Board</NavLink>
                       </li>
                    </ul>
-                   <div className="form-inline my-2 my-lg-0">
-                      <span className=" text-primary m-3" type="search" >Aly kader</span>
-                      <span className="m-3 " type="search" ><img width="50px" height="50px" src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" /></span>
-                      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-                   </div>
+                     <Profile  />
                 </div>
              </div>
           </nav>
@@ -38,3 +36,4 @@ export default class NavBar extends Component {
         )
     }
 }
+

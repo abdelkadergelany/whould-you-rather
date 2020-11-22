@@ -1,9 +1,13 @@
-import { SET_AUTHED_USER } from '../actions/authedUser'
+import { RECEIVE_QUESTIONS } from '../actions/questions'
 
-export default function questions (state = {}, action) {
-  switch (action.type) {
-    case SET_AUTHED_USER :
-      return action.id
+export default function tweets (state = {}, action) {
+  switch(action.type) {
+    case RECEIVE_QUESTIONS :
+      return {
+        ...state,
+        ...action.questions
+      }
+
     default :
       return state
   }
