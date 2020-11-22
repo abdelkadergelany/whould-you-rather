@@ -19,14 +19,18 @@ function App() {
     <Router>
         <div className="App">
             <NavBar />
-             
-            <Route  path='/' component={Home} />
-           
+            <Route exact path='/view-pool/:id' component={Pool} />
+            
+            <Route exact path='/give-answer/:id' component={GiveAnswer} />
+
+
             <Route exact path='/new-question' component={NewQuestion} />
             <Route exact path='/leader-board' component={LeaderBoard} />
-            <Route exact path='/view-pool' component={Pool} />
+            
             <Route exact path='/login' component={Login} />
             <Route exact path='/give-answer' component={GiveAnswer} />
+            
+            <Route  path='/' component={Home} />
             
 
         </div>

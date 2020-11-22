@@ -19,7 +19,7 @@ export default class QuestionList extends Component {
                               </div>
                            </li>
                         </ul>
-                        <button className="btn btn-primary btn-lg" >view pool</button>
+                        <Link to={`/${ this.props.rout }/1`} className="btn btn-primary btn-lg" >view pool</Link>
                      </div>
                   </div>
                </div>

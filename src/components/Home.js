@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import QuestionList from './QuestionList'
 import {Link,NavLink,Route, Router} from 'react-router-dom'
+import Pool from './Pool'
+import Answered from './Answered'
+import Unanswered from './Unanswered'
 
 
 
@@ -22,9 +25,8 @@ export default class Home extends Component {
    </div>
    <br/>
    <div className="tab-content" id="myTabContent">
-  
-   <Route  path='/questions/answred' component={QuestionList} />
-   <Route exact path='/questions/unanswred' component={QuestionList} />
+   <Route  path='/questions/answred' component={Answered} />
+   <Route exact path='/questions/unanswred' component={Unanswered} />
    
        
    </div>
