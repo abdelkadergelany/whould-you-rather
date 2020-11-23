@@ -13,6 +13,7 @@ import {
   Switch, 
 } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared';
+import P404 from './P404';
 
 const  mapDispatchToProps = dispatch => ({
   LoadData: () => dispatch(handleInitialData())
@@ -41,6 +42,7 @@ class App extends Component {
                    <Route exact path='/leader-board' component={LeaderBoard} />           
                    <Route exact path='/login' component={Login} />
                    <Route  path='/'  component={Home} />
+                   <Route component={P404} />
                  </Switch>
                 </div>}
                    
@@ -60,7 +62,7 @@ class App extends Component {
     const answerq = user ? user.answers : null
     let answered_quesion_id = answerq ? Object.keys(answerq) : []
     answered_quesion_id = question_id.filter((qid) => answered_quesion_id.includes(qid))
-       // console.log(answered_quesion_id)
+       
     return {
       authedUser: state.authedUser,
       users: state.users,

@@ -107,14 +107,5 @@ const mapStateToProps = state => {
    }
 }
 
-// const mapStateToProps = ({ questions, authedUser, users }) => {
-//    return {
-//       questions,
-//       users,
-//       authedUser,
-
-//   }
-// }
-
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(GiveAnswer))

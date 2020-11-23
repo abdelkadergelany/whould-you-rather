@@ -13,8 +13,6 @@ import Rank from './Rank'
                     <Rank id={id} />
                 ))}
 
-                 
-
             </div>
          </div>
         )

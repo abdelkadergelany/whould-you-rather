@@ -1,12 +1,7 @@
 
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
-export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const ANSWER_QUESTIONS = 'ANSWER_QUESTIONS'
-export const ADD_QUESTION = 'ADD_QUESTION'
-export const SAVE_ANSWER = 'SAVE_ANSWER'
-
-
+import { ADD_QUESTION, RECEIVE_QUESTIONS, SAVE_ANSWER } from './actionType'
 
 
 export function receiveQuestions (questions) {
@@ -17,32 +12,16 @@ export function receiveQuestions (questions) {
 }
 
 export function saveUserAnswer({ authedUser, qid, answer }) {
-  return {
-      type: SAVE_ANSWER,
-      authedUser,
-      qid,
-      answer
-  }
+  return {  type: SAVE_ANSWER, authedUser, qid, answer }
 }
 
 export function manageSaveAnswer(info) {
   
   return (dispatch => {
       return _saveQuestionAnswer(info)
-          .then(() => {
-              dispatch(saveUserAnswer(info))
-          })
+          .then(() => { dispatch(saveUserAnswer(info)) })
   })
 }
-
-
-export function addUserQuestion(question) {
-  return {
-      type: ADD_QUESTION,
-      question
-  }
-}
-
 
 export function manageSaveQuestion(question) {
   return (dispatch) => {
@@ -52,4 +31,11 @@ export function manageSaveQuestion(question) {
           })
   }
 }
+
+export function addUserQuestion(question) {
+  return {type: ADD_QUESTION, question}
+}
+
+
+
 

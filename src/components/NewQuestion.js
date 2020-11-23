@@ -47,6 +47,7 @@ const  mapDispatchToProps = dispatch => ({
       if (this.state.complete === true) {
          return <Redirect to='/questions/unanswred' />
      }
+      const user = this.props.users[this.props.authedUser]
 
         return (
            
@@ -57,9 +58,9 @@ const  mapDispatchToProps = dispatch => ({
             <div className="card-body ">
                <ul className="list-unstyled">
                   <li className="media">
-                     <img className="mr-3" width="100px" height="100px" src="https://img.lovepik.com/element/40175/2566.png_300.png" alt="Generic placeholder image" />
+                     <img className="mr-3" width="100px" height="100px" src={user.avatarURL} alt="Generic placeholder image" />
                      <div className="media-body">
-                        <h5 className="mt-0 mb-1">Aly abdelkader</h5>
+                        <h5 className="mt-0 mb-1">{user.name}</h5>
                         <p>Would you rather</p>
                      </div>
                   </li>
@@ -102,6 +103,7 @@ const  mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
    return {
      authedUser: state.authedUser,
+     users: state.users
    }
 }
 

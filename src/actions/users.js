@@ -1,5 +1,4 @@
-export const RECEIVE_USERS = 'RECEIVE_USERS'
-export const GET_ALL_USERS = 'GET_ALL_USERS'
+import { GET_ALL_USERS, RECEIVE_USERS } from "./actionType"
 
 export function receiveUsers (users) {
   return {
