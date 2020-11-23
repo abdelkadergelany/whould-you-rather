@@ -9,9 +9,7 @@ const  mapDispatchToProps = dispatch => ({
  class Login extends Component {
 
     componentDidMount() {
-      //  console.log('tester1')
-         // console.log(this.props.users)
-      //   console.log('tester2')
+
       }
       constructor(props) {
          super(props);

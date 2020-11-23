@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import QuestionList from './QuestionList'
-import {Link,NavLink,Route, Router} from 'react-router-dom'
+import {Link,NavLink,Route, Router, withRouter} from 'react-router-dom'
 import Pool from './Pool'
 import Answered from './Answered'
 import Unanswered from './Unanswered'
 
 
 
-export default class Home extends Component {
+ class Home extends Component {
     render() {
         
         return (
@@ -35,3 +35,5 @@ export default class Home extends Component {
         )
     }
 }
+
+export default withRouter(Home);

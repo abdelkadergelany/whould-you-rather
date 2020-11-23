@@ -1,7 +1,53 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { manageSaveQuestion } from '../actions/questions';
+import { Redirect, withRouter } from 'react-router-dom';
 
-export default class NewQuestion extends Component {
+
+
+const  mapDispatchToProps = dispatch => ({
+   manageSaveQuestion: (qs) => dispatch(manageSaveQuestion(qs))
+
+ });
+
+ class NewQuestion extends Component {
+   constructor(props) {
+      super(props);
+
+      this.state = {
+         authedUser:this.props.authedUser,
+         complete:false
+       
+        
+     }
+
+      this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleSubmit(event) {
+     event.preventDefault()
+     if(event.target['option1']['value']=='' || event.target['option2']['value']=='' )
+     {
+        return false
+     }
+     const author  = this.state.authedUser
+     const optionOneText  = event.target['option1']['value']
+     const optionTwoText  = event.target['option2']['value']
+     
+     this.props.manageSaveQuestion({ optionOneText, optionTwoText, author })
+
+   this.setState({complete:true})
+
+
+
+
+    }
     render() {
+      if (this.state.complete === true) {
+         return <Redirect to='/questions/unanswred' />
+     }
+
         return (
            
                 <div className="container">
@@ -19,18 +65,18 @@ export default class NewQuestion extends Component {
                   </li>
                   <hr/>
                </ul>
-               <form>
+               <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                      <div className="row align-item-center" >
                         <div className="col-md-6 m-auto">
                            <label for="v1">Option 1 </label><br/>
-                           <input className="form-control" id="v1" name="val1" type="text" value="" /><br/>
+                           <input className="form-control" id="v1" name="option1" type="text"  /><br/>
                         </div>
                      </div>
                      <div className="row align-item-center" >
                         <div className="col-md-6 m-auto">
                            <label for="v2">Option 2</label><br/>
-                           <input className="form-control" id="v2" name="val2" type="text" value="" /><br/>
+                           <input className="form-control" id="v2" name="option2" type="text"  /><br/>
                         </div>
                      </div>
                   </div>
@@ -51,3 +97,12 @@ export default class NewQuestion extends Component {
         )
     }
 }
+
+
+const mapStateToProps = state => {
+   return {
+     authedUser: state.authedUser,
+   }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewQuestion))

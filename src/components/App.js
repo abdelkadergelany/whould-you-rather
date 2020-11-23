@@ -9,7 +9,8 @@ import Pool from './Pool';
 import Login from './Login';
 import {
   BrowserRouter as Router,
-  Route, 
+  Route,
+  Switch, 
 } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared';
 
@@ -33,13 +34,14 @@ class App extends Component {
               {this.props.authedUser === null
               ? <Login />
               : <div>
+                <Switch> 
                    <Route exact path='/view-pool/:id'  component={Pool} />           
                    <Route exact path='/give-answer/:id' component={GiveAnswer} />
                    <Route exact path='/new-question' component={NewQuestion} />
                    <Route exact path='/leader-board' component={LeaderBoard} />           
                    <Route exact path='/login' component={Login} />
-                   <Route exact path='/give-answer' component={GiveAnswer} />           
                    <Route  path='/'  component={Home} />
+                 </Switch>
                 </div>}
                    
   
@@ -58,7 +60,7 @@ class App extends Component {
     const answerq = user ? user.answers : null
     let answered_quesion_id = answerq ? Object.keys(answerq) : []
     answered_quesion_id = question_id.filter((qid) => answered_quesion_id.includes(qid))
-        console.log(answered_quesion_id)
+       // console.log(answered_quesion_id)
     return {
       authedUser: state.authedUser,
       users: state.users,
