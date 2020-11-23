@@ -28,41 +28,39 @@ const  mapDispatchToProps = dispatch => ({
        }
 
     render() {
-      console.log(this.props.users)
       const obj = this.props.users
         return (
-            <div className="container">
-   <div className="card text-center">
-      <div className="card-header">
-         Login
-      </div>
-      <div className="card-body">
-         <h5 className="card-title">Choose an account</h5>
-         <form>
-            <div className="form-group">
-               <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleValueChange}>
-         <option>Select a user</option>
-        {/* { Array.from(this.props.users).map((ex, index)=><option key={index}>f</option>)} */}
-        {Object.keys(obj).map(function(keyName, keyIndex) {
-    		return (
-      			<option key={keyName} value={keyName}>
-					{obj[keyName].name}
-                   
-          		</option>
-    		)
-		})}
-               </select>
-            </div>
-            <div className="form-group">
-               <input type="submit" className="form-control btn btn-primary"/>
-            </div>
-         </form>
-      </div>
-      <div className="card-footer text-muted">
-         SECURITY
-      </div>
-   </div>
-</div>
+         <div className="container">
+         <div className="card text-center">
+           <div className="card-header">Login</div>
+           <div className="card-body">
+             <h5 className="card-title">Choose an account</h5>
+             <form>
+               <div className="form-group">
+                 <select
+                   className="form-control"
+                   id="exampleFormControlSelect1"
+                   onChange={this.handleValueChange}
+                 >
+                   <option>Select a user</option>
+                   {Object.keys(obj).map(function (keyName, keyIndex) {
+                     return (
+                       <option key={keyName} value={keyName}>
+                         {obj[keyName].name}
+                       </option>
+                     );
+                   })}
+                 </select>
+               </div>
+               <div className="form-group">
+                 <input type="submit" className="form-control btn btn-primary" />
+               </div>
+             </form>
+           </div>
+           <div className="card-footer text-muted">SECURITY</div>
+         </div>
+       </div>
+       
         )
     }
 }

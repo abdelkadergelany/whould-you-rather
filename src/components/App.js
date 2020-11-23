@@ -20,16 +20,7 @@ const  mapDispatchToProps = dispatch => ({
 class App extends Component {
 
   componentDidMount() {
-    // this.props.dispatch(handleInitialData())
     this.props.LoadData();
-
-    // console.log('tester1')
-    // console.log(this.props.users)
-    // console.log('this.props.authedUser')
-    // console.log(this.props.authedUser)
-    // console.log('this.props.authedUser')
-   
-
   }
   
   render(){
@@ -42,38 +33,37 @@ class App extends Component {
               {this.props.authedUser === null
               ? <Login />
               : <div>
-                   <Route exact path='/view-pool/:id' component={Pool} />           
+                   <Route exact path='/view-pool/:id'  component={Pool} />           
                    <Route exact path='/give-answer/:id' component={GiveAnswer} />
                    <Route exact path='/new-question' component={NewQuestion} />
                    <Route exact path='/leader-board' component={LeaderBoard} />           
                    <Route exact path='/login' component={Login} />
                    <Route exact path='/give-answer' component={GiveAnswer} />           
-                   <Route  path='/' component={Home} />
+                   <Route  path='/'  component={Home} />
                 </div>}
                    
   
           </div>
       </Router>
-    );
+    )
 
   }
   
 }
 
-// function mapStateToProps ({authedUser, users, questions}) {
-//   return {
-//     authedUser,
-//     questions,
-//     users
-//     }
-//   }
 
   const mapStateToProps = state => {
-    
+    const question_id = Object.keys(state.questions).sort((a, b) => state.questions[b].timestamp - state.questions[a].timestamp)
+    const user = state.authedUser ? state.users[state.authedUser] : null
+    const answerq = user ? user.answers : null
+    let answered_quesion_id = answerq ? Object.keys(answerq) : []
+    answered_quesion_id = question_id.filter((qid) => answered_quesion_id.includes(qid))
+        console.log(answered_quesion_id)
     return {
       authedUser: state.authedUser,
       users: state.users,
-      questions: state.questions
+      questions: state.questions,
+      answered_questions:answered_quesion_id
     }
 }
 
