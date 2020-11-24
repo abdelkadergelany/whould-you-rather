@@ -8,9 +8,7 @@ const  mapDispatchToProps = dispatch => ({
 
  class Login extends Component {
 
-    componentDidMount() {
-
-      }
+   
       constructor(props) {
          super(props);
  

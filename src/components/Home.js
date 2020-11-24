@@ -9,15 +9,20 @@ import Unanswered from './Unanswered'
       super(props);
 
       this.state = {
-         complete:true
-              
+         complete:true             
      }
+     this.handleValueChange = this.handleValueChange.bind(this);
 
 
   }
+
+  handleValueChange() {
+   this.setState({complete:false}); 
+ }
+
     render() {
       if (this.state.complete === true) {
-         this.setState({complete:false})
+         this.handleValueChange()
          return <Redirect to='/questions/unanswred' />
      }
         return (
