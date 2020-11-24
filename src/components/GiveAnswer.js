@@ -46,6 +46,11 @@ const  mapDispatchToProps = dispatch => ({
      }
 
       const question = this.props.questions ? this.props.questions[this.props.match.params.id] : null
+      
+      if (question===undefined)
+      {
+       return <Redirect to='/notfound' />
+     }
       const user = question ? this.props.users[question.author] : null 
     
 

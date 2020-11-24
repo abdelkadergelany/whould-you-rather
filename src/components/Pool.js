@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
  class Pool extends Component {
     render() {
       const question = this.props.questions ? this.props.questions[this.props.match.params.id] : null
+       if (question===undefined)
+       {
+        return <Redirect to='/notfound' />
+      }
       const user = question ? this.props.users[question.author] : null 
       let fisrtOption = (((question.optionOne.votes.length) / ((question.optionOne.votes.length) + (question.optionTwo.votes.length))) * 100)
       fisrtOption=Number.parseFloat(fisrtOption).toPrecision(3)
       let secondOption = (((question.optionTwo.votes.length) / ((question.optionOne.votes.length) + (question.optionTwo.votes.length))) * 100)
          secondOption = Number.parseFloat(secondOption).toPrecision(3)
-
+     
 
         return (
          <div className="container">
