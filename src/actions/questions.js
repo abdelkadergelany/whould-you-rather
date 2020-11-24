@@ -1,5 +1,4 @@
 
-import { showLoading, hideLoading } from 'react-redux-loading'
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 import { ADD_QUESTION, RECEIVE_QUESTIONS, SAVE_ANSWER } from './actionType'
 

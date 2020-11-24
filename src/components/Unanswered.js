@@ -13,7 +13,7 @@ import QuestionList from './QuestionList'
                            {this.props.all_questions.map((id) => {
                             if (!(this.props.answered_questions.includes(id))) {
                                 return (
-                                    <QuestionList id={id}  rout='give-answer' />
+                                    <QuestionList key={id} id={id}  rout='give-answer' />
                                         
                                     
                                 )

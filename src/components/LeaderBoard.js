@@ -10,7 +10,7 @@ import Rank from './Rank'
          
             {this.props.user_Id.map((id) => (
                     
-                    <Rank id={id} />
+                    <Rank key={id} id={id} />
                 ))}
 
             </div>
@@ -24,11 +24,8 @@ const mapStateToProps = ({ users }) => {
        .sort((a, b) => ((Object.keys(users[b].answers).length + users[b].questions.length)
            -
            (Object.keys(users[a].answers).length + users[a].questions.length)))
-   return {
-       user_Id
-   }
+   return { user_Id}
 }
-
 
 
 export default connect(mapStateToProps)(LeaderBoard)

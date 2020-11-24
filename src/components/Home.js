@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
-import {NavLink,Route, withRouter} from 'react-router-dom'
+import {NavLink,Redirect,Route} from 'react-router-dom'
 import Answered from './Answered'
 import Unanswered from './Unanswered'
 
 
  class Home extends Component {
+   constructor(props) {
+      super(props);
+
+      this.state = {
+         complete:true
+              
+     }
+
+
+  }
     render() {
-        
+      if (this.state.complete === true) {
+         this.setState({complete:false})
+         return <Redirect to='/questions/unanswred' />
+     }
         return (
            
   <div className="container">
@@ -22,8 +35,10 @@ import Unanswered from './Unanswered'
    </div>
    <br/>
    <div className="tab-content" id="myTabContent">
-   <Route  path='/questions/answred' component={Answered} />
+  
    <Route exact path='/questions/unanswred' component={Unanswered} />
+   <Route exact path='/questions/answred' component={Answered} />
+   
    
        
    </div>
@@ -33,4 +48,4 @@ import Unanswered from './Unanswered'
     }
 }
 
-export default withRouter(Home);
+export default Home;

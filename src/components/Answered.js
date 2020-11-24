@@ -15,7 +15,7 @@ import QuestionList from './QuestionList'
                  <div className="row ">
                         {this.props.answered_questions.map((id) => (
                              
-                              <QuestionList  id={id}  rout='view-pool' />
+                              <QuestionList key={id} id={id}  rout='view-pool' />
                             
                         ))}
 
@@ -41,20 +41,6 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapStateToProps = ({ questions, users, authedUser }) => {
-//     const qids = Object.keys(questions).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-//     const user = authedUser ? users[authedUser] : null
-//     const answerqt = user ? user.answers : null
-//     let an_q = answerqt ? Object.keys(answerqt) : []
-//     an_q = qids.filter((qid) => an_q.includes(qid))
-//    const  answered_questions = an_q
-//     return {
-//         authedUser,
-//         qids,
-//         answered_questions
-
-//     }
-// }
 
 export default connect(mapStateToProps)(Answered)
 

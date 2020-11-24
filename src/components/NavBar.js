@@ -10,7 +10,7 @@ export default class NavBar extends Component {
           <div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
              <div className="container">
-             <Link className="nav-link" className="navbar-brand" to='/questions/answred'>WHould_U_Rather</Link>
+             <Link  className="nav-link navbar-brand" to='/questions/answred'>WHould_U_Rather</Link>
                 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

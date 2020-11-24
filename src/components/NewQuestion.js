@@ -16,9 +16,7 @@ const  mapDispatchToProps = dispatch => ({
 
       this.state = {
          authedUser:this.props.authedUser,
-         complete:false
-       
-        
+         complete2:false        
      }
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +25,7 @@ const  mapDispatchToProps = dispatch => ({
 
   handleSubmit(event) {
      event.preventDefault()
-     if(event.target['option1']['value']=='' || event.target['option2']['value']=='' )
+     if(event.target['option1']['value']==='' || event.target['option2']['value']==='' )
      {
         return false
      }
@@ -37,14 +35,14 @@ const  mapDispatchToProps = dispatch => ({
      
      this.props.manageSaveQuestion({ optionOneText, optionTwoText, author })
 
-   this.setState({complete:true})
+   this.setState({complete2:true})
 
 
 
 
     }
     render() {
-      if (this.state.complete === true) {
+      if (this.state.complete2 === true) {
          return <Redirect to='/questions/unanswred' />
      }
       const user = this.props.users[this.props.authedUser]
@@ -70,13 +68,13 @@ const  mapDispatchToProps = dispatch => ({
                   <div className="form-group">
                      <div className="row align-item-center" >
                         <div className="col-md-6 m-auto">
-                           <label for="v1">Option 1 </label><br/>
+                           <label htmlFor="v1">Option 1 </label><br/>
                            <input className="form-control" id="v1" name="option1" type="text"  /><br/>
                         </div>
                      </div>
                      <div className="row align-item-center" >
                         <div className="col-md-6 m-auto">
-                           <label for="v2">Option 2</label><br/>
+                           <label htmlFor="v2">Option 2</label><br/>
                            <input className="form-control" id="v2" name="option2" type="text"  /><br/>
                         </div>
                      </div>

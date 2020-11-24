@@ -24,7 +24,7 @@ const  mapDispatchToProps = dispatch => ({
 
   handleSubmit(event) {
      event.preventDefault()
-     if(event.target['val']['value']=='')
+     if(event.target['val']['value']==='')
      {
         return false
      }

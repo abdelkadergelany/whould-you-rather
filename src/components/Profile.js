@@ -12,14 +12,10 @@ const  mapDispatchToProps = dispatch => ({
         super(props);
 
         this.handleLogout = this.handleLogout.bind(this);
-
     }
-
+    
     handleLogout(event) {
-        //console.log(event.target.value);
         this.props.Logout();
-
-
       }
 
     render() {
@@ -29,7 +25,7 @@ const  mapDispatchToProps = dispatch => ({
                 {this.props.authedUser===null? '' : 
                  <span>
                 {this.props.authedUser}
-            <img className='m-1' width="50px" height="50px" src={this.props.users[this.props.authedUser].avatarURL}  />
+            <img className='m-1' alt='avatar' width="50px" height="50px" src={this.props.users[this.props.authedUser].avatarURL}  />
             <button onClick={this.handleLogout} className="btn btn-outline-success  my-2 my-sm-0" type="submit">Logout</button>
             </span>
             }

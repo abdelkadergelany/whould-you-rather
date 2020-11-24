@@ -19,10 +19,7 @@ const  mapDispatchToProps = dispatch => ({
      }
  
      handleValueChange(event) {
-         //console.log(event.target.value);
-         this.props.setAuthedUser(event.target.value);
- 
- 
+         this.props.setAuthedUser(event.target.value); 
        }
 
     render() {

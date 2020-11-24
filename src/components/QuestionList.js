@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -9,8 +9,7 @@ import {Link} from 'react-router-dom'
 
         return (
             
-            // <div className="tab-pane fade show active" id="answred" role="tabpanel" aria-labelledby="home-tab">
-            // <div className="row ">
+ 
            
 
                <div className="col-sm-6 mb-3  " >
@@ -32,8 +31,7 @@ import {Link} from 'react-router-dom'
                   </div>
                </div>
                
-         //    </div>
-         // </div>
+ 
          
         )
     }
