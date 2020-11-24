@@ -42,8 +42,8 @@ class App extends Component {
                    
                    <Route exact path='/view-pool/:id'  component={Pool} />           
                    <Route exact path='/give-answer/:id' component={GiveAnswer} />
-                   <Route exact path='/new-question' component={NewQuestion} />
-                   <Route exact path='/leader-board' component={LeaderBoard} />           
+                   <Route exact path='/add' component={NewQuestion} />
+                   <Route exact path='/leaderboard' component={LeaderBoard} />           
                    <Route exact path='/login' component={Login} />  
                    <Route  path='/'  component={Home} />
 

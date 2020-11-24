@@ -21,10 +21,10 @@ export default class NavBar extends Component {
                       <NavLink  activeClassName="active" to="/questions/answred"  className="nav-link">Home</NavLink>
                       </li>
                       <li className="nav-item">
-                      <NavLink  activeClassName="active" to="/new-question"  className="nav-link">New Questions</NavLink>
+                      <NavLink  activeClassName="active" to="/add"  className="nav-link">New Questions</NavLink>
                       </li>
                       <li className="nav-item">
-                      <NavLink  activeClassName="active" to="/leader-board"  className="nav-link">Leader Board</NavLink>
+                      <NavLink  activeClassName="active" to="/leaderboard"  className="nav-link">Leader Board</NavLink>
                       </li>
                    </ul>
                      <Profile  />
