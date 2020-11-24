@@ -11,7 +11,11 @@ this is the final project required at the end of the react-redux module.
 ## How to install the project
 
 Download the source code, go to the directory and from the 
-command line, run yarn Install
+command line, run yarn Install or npm install 
+
+## to run the project
+go to the directory and from the 
+command line, run yarn start or npm start
 
 ## Available Scripts
 
