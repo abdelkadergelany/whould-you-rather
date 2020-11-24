@@ -1,4 +1,4 @@
-import { ADD_QUESTION, RECEIVE_USERS, SAVE_ANSWER } from "../actions/actionType"
+import { ADD_QUESTION, RECEIVE_USERS, SAVE_ANSWER, } from "../actions/actionType"
 
 export default function users (state = {}, action) {
   switch(action.type) {
@@ -17,6 +17,7 @@ export default function users (state = {}, action) {
                questions: state[question.author].questions.concat([question.id])
             }
         }
+       
     default :
       return state
   }

@@ -1,33 +1,24 @@
 import React, { Component } from 'react'
-import {NavLink,Redirect,Route} from 'react-router-dom'
+import {NavLink,Redirect,Route, useLocation} from 'react-router-dom'
 import Answered from './Answered'
 import Unanswered from './Unanswered'
 
+const Togle = (a) => {
+   let location = useLocation();
+  const val = location.pathname !=='/'? <span></span>:<Redirect to='/questions/unanswred' />
+  
+     return val ;
 
+}
  class Home extends Component {
-   constructor(props) {
-      super(props);
 
-      this.state = {
-         complete:true             
-     }
-     this.handleValueChange = this.handleValueChange.bind(this);
-
-
-  }
-
-  handleValueChange() {
-   this.setState({complete:false}); 
- }
 
     render() {
-      if (this.state.complete === true) {
-         this.handleValueChange()
-         return <Redirect to='/questions/unanswred' />
-     }
-        return (
+  
+        return ( 
            
   <div className="container">
+    <Togle/>
    <div className="col-md-6 m-auto align-item-center" >
       <ul className="nav nav-tabs" id="myTab" role="tablist">
          <li className="nav-item">
@@ -40,7 +31,7 @@ import Unanswered from './Unanswered'
    </div>
    <br/>
    <div className="tab-content" id="myTabContent">
-  
+   
    <Route exact path='/questions/unanswred' component={Unanswered} />
    <Route exact path='/questions/answred' component={Answered} />
    
