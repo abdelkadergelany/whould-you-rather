@@ -16,9 +16,9 @@ export default class P404 extends Component {
                             Sorry, an error has occured, Requested page not found!
                         </div>
                         <div className="error-actions">
-                            <NavLink to="/" className="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                            <NavLink to="/" className="btn btn-primary btn-lg"><span className="glyphicon glyphicon-home"></span>
                                 Take Me Home </NavLink>
-                            <NavLink to="#" className="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </NavLink>
+                            <NavLink to="#" className="btn btn-default btn-lg"><span className="glyphicon glyphicon-envelope"></span> Contact Support </NavLink>
                         </div>
                     </div>
                 </div>
